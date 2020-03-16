@@ -1,0 +1,136 @@
+@import '_device_mixin';
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    height: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/* Убираем внутренние отступы */
+
+ul[class],
+ol[class] {
+    padding: 0;
+}
+
+
+/* Убираем внешние отступы */
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+body {
+    padding: 10px;
+}
+
+.container {
+    border: 1px solid #000;
+
+    .row {
+        width: 100%;
+        display: flex;
+        
+        @include xSmall {
+            flex-wrap: wrap;
+        }
+    }
+
+    .first-row {
+
+        .w150 {
+            padding: 40px 0;
+            width: 150px;
+
+            @include xSmall {
+                width: 100%;
+            }
+
+            &:nth-of-type(3) {
+                
+                @include Small {
+                    display: none;
+                }
+            }
+        }
+        
+        .wDynamic {
+            padding: 40px 0;
+            flex-grow: 1;
+        }
+    }
+
+    .second-row {
+        
+        &__half {
+            width: 50%;
+
+            @include xSmall {
+                width: 100%;
+            }
+
+            &.first-half {
+
+                .row__item60 {
+                    width: 60%;
+                    padding: 20px 0;
+
+                    @include xSmall {
+                        width: 100%;
+                    }
+                }
+
+                .row__item40 {
+                    width: 40%;
+                    padding: 20px 0;
+
+                    @include xSmall {
+                        width: 100%;
+                    }
+                }
+
+                &>.block{
+                    padding: 80px 0;
+                }
+            }
+
+            &.second-half {
+                padding: 80px 0;
+            }
+        }
+    }
+
+    .block {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #bcd6ed;
+
+        @include xSmall {
+            width: 100%;
+        }
+    }
+}
